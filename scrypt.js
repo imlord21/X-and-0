@@ -16,7 +16,7 @@ function checkWinner() {
             return board[a];
         }
     }
-    return board.includes('') ? null : 'Egalitate';
+    return board.includes('') ? null : 'Equality';
 }
 
 function handleClick(event) {
@@ -26,7 +26,7 @@ function handleClick(event) {
         event.target.textContent = currentPlayer;
         let result = checkWinner();
         if (result) {
-            message.textContent = result === 'Egalitate' ? 'Remiză!' : `Jucătorul ${result} a câștigat!`;
+            message.textContent = result === 'Equality' ? 'Draw!' : `Player ${result} win!`;
             cells.forEach(cell => cell.removeEventListener('click', handleClick));
         } else {
             currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
